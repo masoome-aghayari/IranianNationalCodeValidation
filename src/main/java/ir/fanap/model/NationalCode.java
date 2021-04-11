@@ -8,6 +8,10 @@ public class NationalCode {
     private boolean valid;
     private LocalDateTime inputTime;
 
+    public NationalCode(String nationalCode) {
+        this.nationalCode = nationalCode;
+    }
+
     public NationalCode(String nationalCode, LocalDateTime inputTime) {
         setNationalCode(nationalCode);
         setInputTime(inputTime);
@@ -47,7 +51,7 @@ public class NationalCode {
     public String toString() {
         return "NationalCode{" +
                 "nationalCode='" + nationalCode + '\'' +
-                ", inputDateTime=" + inputTime.format(DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss")) +
+                ", inputDateTime=" + (inputTime == null ? null : inputTime.format(DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss"))) +
                 ", isValid=" + valid +
                 '}';
     }
