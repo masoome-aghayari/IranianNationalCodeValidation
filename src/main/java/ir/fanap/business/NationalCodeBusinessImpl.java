@@ -14,16 +14,27 @@ public class NationalCodeBusinessImpl implements NationalCodeBusiness {
 
     public void validateNationalCode(NationalCode nationalCode) {
         String nationalCodeString = nationalCode.getNationalCode();
-        if (!nationalCodeString.matches("0{10}|1{10}|2{10}|3{10}|4{10}|5{10}|6{10}|7{10}|8{10}|9{10}")) {
-            int lastDigit = calculateLastDigit(nationalCodeString);
-            int nationalCodeLastDigit = nationalCodeString.charAt(9);
-            nationalCode.setValid(nationalCodeLastDigit - 48 == lastDigit);
-        } else
+        int length = nationalCodeString.length();
+        if (hasInValidLengthOrDigits(nationalCodeString))
             nationalCode.setValid(false);
+        else {
+            nationalCodeString = length == 8 ? "00" + nationalCodeString :
+                    length == 9 ? "0" + nationalCodeString : nationalCodeString;
+            int lastDigit = calculateNationalCodeLastDigit(nationalCodeString);
+            int nationalCodeLastDigit = nationalCodeString.charAt(9) - 48;
+            nationalCode.setValid(nationalCodeLastDigit == lastDigit);
+        }
         nationalCodes.add(nationalCode);
     }
 
-    public int calculateLastDigit(String nationalCodeString) {
+    public boolean hasInValidLengthOrDigits(String nationalCodeString) {
+        int length = nationalCodeString.length();
+        return (length < 8 ||
+                length > 10 ||
+                (nationalCodeString.matches("0{8,10}|1{8,10}|2{8,10}|3{8,10}|4{8,10}|5{8,10}|6{8,10}|7{8,10}|8{8,10}|9{8,10}")));
+    }
+
+    public int calculateNationalCodeLastDigit(String nationalCodeString) {
         int sum = IntStream.range(0, 9)
                 .map(i -> Character.getNumericValue(nationalCodeString.charAt(i)) * (10 - i))
                 .sum();

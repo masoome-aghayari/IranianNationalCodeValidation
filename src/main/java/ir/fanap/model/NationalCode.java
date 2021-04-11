@@ -18,9 +18,7 @@ public class NationalCode {
     }
 
     public void setNationalCode(String nationalCode) {
-        int length = nationalCode.length();
-        this.nationalCode = length == 8 ? "00" + nationalCode :
-                length == 9 ? "0" + nationalCode : nationalCode;
+        this.nationalCode = nationalCode;
     }
 
     public boolean isValid() {
