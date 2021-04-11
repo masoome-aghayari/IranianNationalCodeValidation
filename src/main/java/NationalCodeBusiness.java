@@ -1,3 +1,4 @@
+import model.NationalCode;
 
 public interface NationalCodeBusiness {
     /**

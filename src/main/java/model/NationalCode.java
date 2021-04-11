@@ -1,3 +1,5 @@
+package model;
+
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
@@ -39,7 +41,7 @@ public class NationalCode {
 
     @Override
     public String toString() {
-        return "NationalCode{" +
+        return "model.NationalCode{" +
                 "nationalCode='" + nationalCode + '\'' +
                 ", inputDateTime=" + inputTime.format(DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss")) +
                 ", isValid=" + isValid +
