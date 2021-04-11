@@ -23,7 +23,7 @@ public class NationalCodeBusinessImpl implements NationalCodeBusiness {
         nationalCodes.add(nationalCode);
     }
 
-    private int calculateLastDigit(String nationalCodeString) {
+    public int calculateLastDigit(String nationalCodeString) {
         int sum = IntStream.range(0, 9)
                 .map(i -> Character.getNumericValue(nationalCodeString.charAt(i)) * (10 - i))
                 .sum();
