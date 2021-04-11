@@ -8,7 +8,7 @@ import java.util.*;
 
 public class Main {
     public static void main(String[] args) {
-        NationalCodeBusinessImpl nationalCodeBusiness = new NationalCodeBusinessImpl(new ArrayList<>());
+        NationalCodeBusinessImpl nationalCodeBusiness = new NationalCodeBusinessImpl();
         String userInput;
         Scanner scanner = new Scanner(System.in);
 

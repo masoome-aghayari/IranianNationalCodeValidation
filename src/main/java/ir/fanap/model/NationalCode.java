@@ -13,6 +13,12 @@ public class NationalCode {
         setInputTime(inputTime);
     }
 
+    public NationalCode(String nationalCode, LocalDateTime inputTime, boolean valid) {
+        setNationalCode(nationalCode);
+        setInputTime(inputTime);
+        setValid(valid);
+    }
+
     public String getNationalCode() {
         return nationalCode;
     }
