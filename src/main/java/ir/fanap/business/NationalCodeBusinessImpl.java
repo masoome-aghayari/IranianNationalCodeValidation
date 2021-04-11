@@ -52,7 +52,7 @@ public class NationalCodeBusinessImpl implements NationalCodeBusiness {
     }
 
     public String getPersonUniqueCode(NationalCode nationalCode) {
-        return nationalCode.getNationalCode().substring(3, 8);
+        return nationalCode.getNationalCode().substring(3, 9);
     }
 
     public List<NationalCode> getNationalCodes() {
