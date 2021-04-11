@@ -1,11 +1,9 @@
-package view;
+package ir.fanap.view;
 
-import business.NationalCodeBusinessImpl;
-import model.NationalCode;
+import ir.fanap.business.NationalCodeBusinessImpl;
+import ir.fanap.model.NationalCode;
 
 import java.time.LocalDateTime;
-import java.time.LocalTime;
-import java.time.format.DateTimeFormatter;
 import java.util.*;
 
 public class Main {

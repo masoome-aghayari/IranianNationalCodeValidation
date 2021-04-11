@@ -1,6 +1,6 @@
-package business;
+package ir.fanap.business;
 
-import model.NationalCode;
+import ir.fanap.model.NationalCode;
 
 public interface NationalCodeBusiness {
     /**

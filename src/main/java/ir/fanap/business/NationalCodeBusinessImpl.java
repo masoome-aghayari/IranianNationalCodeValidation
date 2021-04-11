@@ -1,6 +1,6 @@
-package business;
+package ir.fanap.business;
 
-import model.NationalCode;
+import ir.fanap.model.NationalCode;
 
 import java.util.List;
 import java.util.stream.IntStream;

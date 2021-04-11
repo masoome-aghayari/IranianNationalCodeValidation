@@ -1,4 +1,4 @@
-package model;
+package ir.fanap.model;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
@@ -41,7 +41,7 @@ public class NationalCode {
 
     @Override
     public String toString() {
-        return "model.NationalCode{" +
+        return "ir.fanap.model.NationalCode{" +
                 "nationalCode='" + nationalCode + '\'' +
                 ", inputDateTime=" + inputTime.format(DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss")) +
                 ", isValid=" + isValid +
