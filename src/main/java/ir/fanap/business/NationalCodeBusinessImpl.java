@@ -14,25 +14,26 @@ public class NationalCodeBusinessImpl implements NationalCodeBusiness {
     }
 
     public void validateNationalCode(NationalCode nationalCode) {
-        String nationalCodeString = nationalCode.getNationalCode();
-        int length = nationalCodeString.length();
-        if (hasInValidLengthOrDigits(nationalCodeString))
-            nationalCode.setValid(false);
-        else {
-            nationalCodeString = length == 8 ? "00" + nationalCodeString :
-                    length == 9 ? "0" + nationalCodeString : nationalCodeString;
-            try {
+        try {
+            String nationalCodeString = nationalCode.getNationalCode();
+            int length = nationalCodeString.length();
+            if (hasInValidLengthOrDigits(nationalCodeString))
+                nationalCode.setValid(false);
+            else {
+                nationalCodeString = length == 8 ? "00" + nationalCodeString :
+                        length == 9 ? "0" + nationalCodeString : nationalCodeString;
+
                 int lastDigit = calculateNationalCodeLastDigit(nationalCodeString);
                 int nationalCodeLastDigit = nationalCodeString.charAt(9) - 48;
                 nationalCode.setValid(nationalCodeLastDigit == lastDigit);
-            } catch (StringIndexOutOfBoundsException e) {
-                nationalCode.setValid(false);
             }
+        } catch (StringIndexOutOfBoundsException | NullPointerException e) {
+            nationalCode.setValid(false);
         }
         nationalCodes.add(nationalCode);
     }
 
-    public boolean hasInValidLengthOrDigits(String nationalCodeString) {
+    public boolean hasInValidLengthOrDigits(String nationalCodeString) throws NullPointerException {
         int length = nationalCodeString.length();
         return (length < 8 ||
                 length > 10 ||
@@ -47,11 +48,11 @@ public class NationalCodeBusinessImpl implements NationalCodeBusiness {
         return remainder < 2 ? remainder : 11 - remainder;
     }
 
-    public String getStateCode(NationalCode nationalCode) {
+    public String getStateCode(NationalCode nationalCode) throws NullPointerException {
         return nationalCode.getNationalCode().substring(0, 3);
     }
 
-    public String getPersonUniqueCode(NationalCode nationalCode) {
+    public String getPersonUniqueCode(NationalCode nationalCode) throws NullPointerException {
         return nationalCode.getNationalCode().substring(3, 9);
     }
 

@@ -63,7 +63,8 @@ public class NationalCodeBusinessImplTest {
         NationalCode nationalCode3 = new NationalCode("1111111111", LocalDateTime.now(), false);
         NationalCode nationalCode4 = new NationalCode("1234567", LocalDateTime.now(), false);
         NationalCode nationalCode5 = new NationalCode("5889286706", LocalDateTime.now(), true);
-        return new Object[][]{{nationalCode1}, {nationalCode2}, {nationalCode3}, {nationalCode4}, {nationalCode5}};
+        NationalCode nationalCode6 = new NationalCode(null, LocalDateTime.now(), true);
+        return new Object[][]{{nationalCode1}, {nationalCode2}, {nationalCode3}, {nationalCode4}, {nationalCode5}, {nationalCode6}};
     }
 
     @DataProvider(name = "calculateNationalCodeLastDigitDataProvider")
@@ -89,16 +90,31 @@ public class NationalCodeBusinessImplTest {
         Assert.assertEquals(actualResult, expectedResult);
     }
 
+    @Test(expectedExceptions = NullPointerException.class)
+    public void testGetStateCode() {
+        nationalCodeBusiness.getStateCode(new NationalCode(null));
+    }
+
     @Test(dataProvider = "testGetPersonUniqueCodeDataProvider")
     public void testGetPersonUniqueCode(NationalCode nationalCode, String expectedResult) {
         String actualResult = nationalCodeBusiness.getPersonUniqueCode(nationalCode);
         Assert.assertEquals(actualResult, expectedResult);
     }
 
+    @Test(expectedExceptions = NullPointerException.class)
+    public void testGetPersonUniqueCode() {
+        nationalCodeBusiness.getPersonUniqueCode(new NationalCode(null));
+    }
+
     @Test(dataProvider = "invalidLengthOrDigitsDataProvider")
     public void testHasInValidLengthOrDigits(String nationalCode, boolean expectedResult) {
         boolean actualResult = nationalCodeBusiness.hasInValidLengthOrDigits(nationalCode);
         Assert.assertEquals(actualResult, expectedResult);
+    }
+
+    @Test(expectedExceptions = NullPointerException.class)
+    public void testHasInValidLengthOrDigits() {
+        nationalCodeBusiness.hasInValidLengthOrDigits(null);
     }
 
     @Test(dataProvider = "calculateNationalCodeLastDigitDataProvider")
