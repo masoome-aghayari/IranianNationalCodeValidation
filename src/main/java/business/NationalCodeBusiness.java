@@ -1,3 +1,5 @@
+package business;
+
 import model.NationalCode;
 
 public interface NationalCodeBusiness {
