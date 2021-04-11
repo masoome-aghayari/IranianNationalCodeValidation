@@ -5,11 +5,11 @@ import java.time.format.DateTimeFormatter;
 
 public class NationalCode {
     private String nationalCode;
-    private boolean isValid;
+    private boolean valid;
     private LocalDateTime inputTime;
 
-    public NationalCode(String userInput, LocalDateTime inputTime) {
-        setNationalCode(userInput);
+    public NationalCode(String nationalCode, LocalDateTime inputTime) {
+        setNationalCode(nationalCode);
         setInputTime(inputTime);
     }
 
@@ -22,11 +22,11 @@ public class NationalCode {
     }
 
     public boolean isValid() {
-        return isValid;
+        return valid;
     }
 
     public void setValid(boolean valid) {
-        isValid = valid;
+        this.valid = valid;
     }
 
     public LocalDateTime getInputTime() {
@@ -42,7 +42,7 @@ public class NationalCode {
         return "NationalCode{" +
                 "nationalCode='" + nationalCode + '\'' +
                 ", inputDateTime=" + inputTime.format(DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss")) +
-                ", isValid=" + isValid +
+                ", isValid=" + valid +
                 '}';
     }
 }
