@@ -7,6 +7,6 @@ When user enters "exit" then aplication will stop running
 
 
 Some Used Tools:
-  # Build Tool: Maven
-  # Test Tools: TestNg, JUnit
-  # Mock Tool: Mockito
+  - Build Tool: Maven
+  - Test Tools: TestNg, JUnit
+  - Mock Tool: Mockito
