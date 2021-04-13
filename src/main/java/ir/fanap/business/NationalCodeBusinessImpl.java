@@ -34,9 +34,7 @@ public class NationalCodeBusinessImpl implements NationalCodeBusiness {
     }
 
     public boolean hasInValidLengthOrDigits(String nationalCodeString) throws NullPointerException {
-        int length = nationalCodeString.length();
-        return (length < 8 ||
-                length > 10 ||
+        return (!nationalCodeString.matches("[0-9]{8,10}") ||
                 (nationalCodeString.matches("0{8,10}|1{8,10}|2{8,10}|3{8,10}|4{8,10}|5{8,10}|6{8,10}|7{8,10}|8{8,10}|9{8,10}")));
     }
 
