@@ -1,11 +1,15 @@
 package ir.fanap.business;
 
 import ir.fanap.model.NationalCode;
+import lombok.Getter;
+import lombok.Setter;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.IntStream;
 
+@Setter
+@Getter
 public class NationalCodeBusinessImpl implements NationalCodeBusiness {
     private List<NationalCode> nationalCodes;
 
@@ -22,7 +26,6 @@ public class NationalCodeBusinessImpl implements NationalCodeBusiness {
             else {
                 nationalCodeString = length == 8 ? "00" + nationalCodeString :
                         length == 9 ? "0" + nationalCodeString : nationalCodeString;
-
                 int lastDigit = calculateNationalCodeLastDigit(nationalCodeString);
                 int nationalCodeLastDigit = nationalCodeString.charAt(9) - 48;
                 nationalCode.setValid(nationalCodeLastDigit == lastDigit);
@@ -52,13 +55,5 @@ public class NationalCodeBusinessImpl implements NationalCodeBusiness {
 
     public String getPersonUniqueCode(NationalCode nationalCode) throws NullPointerException {
         return nationalCode.getNationalCode().substring(3, 9);
-    }
-
-    public List<NationalCode> getNationalCodes() {
-        return nationalCodes;
-    }
-
-    public void setNationalCodes(List<NationalCode> nationalCodes) {
-        this.nationalCodes = nationalCodes;
     }
 }

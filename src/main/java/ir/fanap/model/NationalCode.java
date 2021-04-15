@@ -1,8 +1,13 @@
 package ir.fanap.model;
 
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.Setter;
+
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-
+@Setter
+@Getter
 public class NationalCode {
     private String nationalCode;
     private boolean valid;
@@ -23,7 +28,7 @@ public class NationalCode {
         setValid(valid);
     }
 
-    public String getNationalCode() {
+   /* public String getNationalCode() {
         return nationalCode;
     }
 
@@ -45,7 +50,7 @@ public class NationalCode {
 
     public void setInputTime(LocalDateTime inputTime) {
         this.inputTime = inputTime;
-    }
+    }*/
 
     @Override
     public String toString() {
