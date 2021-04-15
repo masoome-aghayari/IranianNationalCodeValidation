@@ -28,30 +28,6 @@ public class NationalCode {
         setValid(valid);
     }
 
-   /* public String getNationalCode() {
-        return nationalCode;
-    }
-
-    public void setNationalCode(String nationalCode) {
-        this.nationalCode = nationalCode;
-    }
-
-    public boolean isValid() {
-        return valid;
-    }
-
-    public void setValid(boolean valid) {
-        this.valid = valid;
-    }
-
-    public LocalDateTime getInputTime() {
-        return inputTime;
-    }
-
-    public void setInputTime(LocalDateTime inputTime) {
-        this.inputTime = inputTime;
-    }*/
-
     @Override
     public String toString() {
         return "NationalCode{" +
